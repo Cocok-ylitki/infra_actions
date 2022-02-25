@@ -69,10 +69,10 @@ jobs:
         key: ${{ secrets.ssh_key }}
         script: |
           # Выполняет pull образа с DockerHub
-          sudo docker pull ${{ secrets.docker_username }}/infra_act:tagname
+          sudo docker pull ${{ secrets.docker_username }}/infra_act
           #остановка всех контейнеров
           sudo docker stop $(sudo docker ps -a -q)
-          sudo docker run --rm -d -p 5000:5000 ${{ secrets.docker_username }}/infra_act:tagname
+          sudo docker run --rm -d -p 5000:5000 ${{ secrets.docker_username }}/infra_act
 
   send_message:
     runs-on: ubuntu-latest
